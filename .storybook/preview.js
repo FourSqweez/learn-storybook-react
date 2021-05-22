@@ -1,3 +1,5 @@
+import Center from './../src/components/Center/index'
+
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 	options: {
@@ -13,3 +15,11 @@ export const parameters = {
 		},
 	},
 }
+
+export const decorators = [
+	(Story) => (
+	  <Center>
+		 <Story />
+	  </Center>
+	),
+ ];
