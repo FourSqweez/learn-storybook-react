@@ -7,13 +7,16 @@ export default {
 	args: {
 		children: 'Button',
 	},
+	decorators: [
+		(Story) => (
+			<Center>
+				<Story />
+			</Center>
+		),
+	],
 }
 
-export const Primary = () => (
-	<Center>
-		<Button variant="primary">Primary</Button>
-	</Center>
-)
+export const Primary = () => <Button variant="primary">Primary</Button>
 
 export const Secondary = () => <Button variant="secondary">Secondary</Button>
 
