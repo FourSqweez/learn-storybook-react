@@ -1,6 +1,7 @@
 import Center from './../src/components/Center'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 import { green } from '@material-ui/core/colors'
+import '@storybook/addon-console'
 
 const theme = createMuiTheme({
 	palette: {

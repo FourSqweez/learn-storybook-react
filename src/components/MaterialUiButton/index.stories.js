@@ -38,3 +38,13 @@ export const Danger = () => (
 		Primary
 	</Button>
 )
+
+export const Log = () => (
+	<Button
+		color="inherit"
+		variant="contained"
+		onClick={() => console.log('Button Clicked')}
+	>
+		Log
+	</Button>
+)
