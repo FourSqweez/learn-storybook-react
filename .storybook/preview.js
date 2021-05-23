@@ -1,4 +1,14 @@
-import Center from './../src/components/Center/index'
+import Center from './../src/components/Center'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core'
+import { green } from '@material-ui/core/colors'
+
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: green[500],
+		},
+	},
+})
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
@@ -18,8 +28,10 @@ export const parameters = {
 
 export const decorators = [
 	(Story) => (
-	  <Center>
-		 <Story />
-	  </Center>
+		<ThemeProvider theme={theme}>
+			<Center>
+				<Story />
+			</Center>
+		</ThemeProvider>
 	),
- ];
+]
