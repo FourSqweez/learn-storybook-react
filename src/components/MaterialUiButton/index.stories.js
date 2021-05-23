@@ -1,5 +1,6 @@
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core'
+import { action, actions } from '@storybook/addon-actions'
 
 const useStyles = makeStyles({
 	success: {
@@ -14,19 +15,26 @@ const useStyles = makeStyles({
 export default {
 	title: 'MaterialUI/Button',
 	component: Button,
+	argTypes: {
+		onClick: {},
+	},
 }
 
-export const Success = () => {
-	const classes = useStyles()
-	return (
-		<Button variant="contained" color="primary">
-			Success
-		</Button>
-	)
+const Template = (args) => <Button {...args} />
+
+export const Success = Template.bind({})
+Success.args = {
+	variant: 'contained',
+	color: 'primary',
+	children: 'Success',
 }
 
 export const Danger = () => (
-	<Button variant="contained" color="secondary">
+	<Button
+		variant="contained"
+		color="secondary"
+		{...actions('onClick', 'onMouseOver')}
+	>
 		Primary
 	</Button>
 )
