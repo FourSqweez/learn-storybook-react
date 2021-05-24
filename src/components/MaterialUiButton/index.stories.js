@@ -11,6 +11,13 @@ const useStyles = makeStyles({
 			backgroundColor: 'yellow',
 		},
 	},
+	fail: {
+		backgroundColor: 'red',
+		color: 'white',
+		'&:hover': {
+			backgroundColor: 'blue',
+		},
+	},
 })
 
 export default {
@@ -51,16 +58,17 @@ export const Log = () => (
 )
 
 export const Knobs = () => {
-	const label = 'Colors'
+	const classes = useStyles()
+	const label = 'ClassName'
 	const options = {
-		Primary: 'primary',
-		Secondary: 'secondary',
+		Success: classes.success,
+		Fail: classes.fail,
 	}
-	const defaultValue = 'secondary'
+	const defaultValue = classes.success
 
 	return (
 		<Button
-			color={select(label, options, defaultValue)}
+			className={select(label, options, defaultValue)}
 			variant="contained"
 			disabled={boolean('Disabled', false)}
 		>
