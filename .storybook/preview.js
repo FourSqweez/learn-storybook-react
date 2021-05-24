@@ -2,8 +2,9 @@ import Center from './../src/components/Center'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 import { green } from '@material-ui/core/colors'
 import { withConsole } from '@storybook/addon-console'
-import { addDecorator } from '@storybook/react'
+import { addDecorator, addParameters } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 const theme = createMuiTheme({
 	palette: {
@@ -41,3 +42,8 @@ export const decorators = [
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context))
 addDecorator(withKnobs)
+addParameters({
+	viewport: {
+		viewports: INITIAL_VIEWPORTS,
+	},
+})
