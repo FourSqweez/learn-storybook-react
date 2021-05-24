@@ -51,7 +51,7 @@ export const Log = () => (
 	<Button
 		color="inherit"
 		variant="contained"
-		onClick={() => console.log('Button Clicked')}
+		onClick={() => console.log('Button Clicked', process.env.STORYBOOK_THEME)}
 	>
 		Log
 	</Button>
