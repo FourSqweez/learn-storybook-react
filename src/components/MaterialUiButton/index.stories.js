@@ -1,6 +1,7 @@
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core'
 import { action, actions } from '@storybook/addon-actions'
+import { select, text, boolean } from '@storybook/addon-knobs'
 
 const useStyles = makeStyles({
 	success: {
@@ -48,3 +49,22 @@ export const Log = () => (
 		Log
 	</Button>
 )
+
+export const Knobs = () => {
+	const label = 'Colors'
+	const options = {
+		Primary: 'primary',
+		Secondary: 'secondary',
+	}
+	const defaultValue = 'secondary'
+
+	return (
+		<Button
+			color={select(label, options, defaultValue)}
+			variant="contained"
+			disabled={boolean('Disabled', false)}
+		>
+			{text('Label', 'Button Label')}
+		</Button>
+	)
+}

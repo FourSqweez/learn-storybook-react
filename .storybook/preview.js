@@ -1,7 +1,9 @@
 import Center from './../src/components/Center'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 import { green } from '@material-ui/core/colors'
-import '@storybook/addon-console'
+import { withConsole } from '@storybook/addon-console'
+import { addDecorator } from '@storybook/react'
+import { withKnobs } from '@storybook/addon-knobs'
 
 const theme = createMuiTheme({
 	palette: {
@@ -36,3 +38,6 @@ export const decorators = [
 		</ThemeProvider>
 	),
 ]
+
+addDecorator((storyFn, context) => withConsole()(storyFn)(context))
+addDecorator(withKnobs)
